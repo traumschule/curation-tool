@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+import { API_URL } from '@/config';
+
 import setAuthToken from './SetToken';
 
 // Create an instance of axios
 const api = axios.create({
-  baseURL: 'http://65.108.209.13:5000/api',
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json'
   }

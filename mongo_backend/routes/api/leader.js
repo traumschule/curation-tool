@@ -1,6 +1,5 @@
 const express = require('express');
 const axios = require('axios');
-const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
@@ -43,7 +42,7 @@ router.get('/video-list/date-range/:start/:end', async (req, res) => {
     // console.log(start. end, "STRart")
     const dateGt = moment.utc(start).toDate();
     const dateLt = moment.utc(end).toDate();
-    
+
     const video_lists = await Video.find({ video_createdAt: { $gte: dateGt, $lt: dateLt } })
     .sort({
       video_createdAt: -1
@@ -62,7 +61,7 @@ router.get('/video-list/date-range/:start/:end', async (req, res) => {
 
 router.get('/video-list/last/video', async (req, res) => {
   try {
-    
+
     const video_lists = await Video.findOne()
     .sort({
       video_createdAt: -1

@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const auth = require('../../middleware/auth');
 const jwt = require('jsonwebtoken');
-const config = require('config');
+const { JWT_SECRET } = require('../../config');
 const { check, validationResult } = require('express-validator');
 
 const Member = require('../../models/Member');
@@ -56,7 +56,7 @@ router.post(
           .status(400)
           .json({ errors: 'The leader have to accept your request.' });
       }
-      
+
       const payload = {
         member: {
           id: member._id,
@@ -66,7 +66,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        JWT_SECRET,
         { expiresIn: '5 days' },
         (err, token) => {
           if (err) throw err;
