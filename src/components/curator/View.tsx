@@ -1,4 +1,4 @@
-import { Button, Card, Col, Divider, Form, Input, Row,Select, Table } from 'antd';
+import { Button, Card, Col, Divider, Form, Input, Row, Select, Table } from 'antd';
 import React, { useState } from 'react';
 
 const flag = false;
@@ -33,14 +33,7 @@ const View = () => {
         </Col>
       </Row>
 
-      <Row>
-        {showVideo && (
-          <video
-            src={`https://dwg.joystream.name/distributor/api/v1/assets/${key}`}
-            controls
-          ></video>
-        )}
-      </Row>
+      <Row>{showVideo && <video src={`https://dist1.joyutils.org/api/v1/assets/${key}`} controls></video>}</Row>
     </section>
   );
 };
