@@ -41,7 +41,8 @@ import {
   YPP_N_NFT_N_CHECK,
   YPP_NFT,
   YPP_NFT_CHECK,
-  YPP_NFT_N_CHECK} from '../actions/types';
+  YPP_NFT_N_CHECK,
+} from '../actions/types';
 
 const today = new Date();
 
@@ -70,7 +71,7 @@ const initialState = {
   duplicate: null,
   start: dayjs(dayjs().format('YYYY-MM-DD 00:00')),
   end: dayjs(),
-  latest:null
+  latest: null,
 };
 
 function videoReducer(state = initialState, action: any) {
@@ -93,7 +94,7 @@ function videoReducer(state = initialState, action: any) {
         cat_B: payload.filter((item: any) => item.video_category == 'B').length,
         cat_C: payload.filter((item: any) => item.video_category == 'C').length,
         cat_D: payload.filter((item: any) => item.video_category == 'D').length,
-        toxic: payload.filter((item: any) => item.video_check_tag != ''&&null).length,
+        toxic: payload.filter((item: any) => item.video_check_tag != '' && null).length,
         duplicate: payload.filter((item: any) => item.video_duplicate == 'Yes').length,
         // start: payload[0],
         // end: payload[1],
@@ -106,10 +107,10 @@ function videoReducer(state = initialState, action: any) {
         end: dayjs(payload[1]),
         // loading: true,
       };
-      case SET__LATEST_VIDEO:
+    case SET__LATEST_VIDEO:
       return {
         ...state,
-        latest: payload
+        latest: payload,
       };
     case GET_CURATORS:
       return {

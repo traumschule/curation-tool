@@ -42,9 +42,9 @@ import {
   YPP_NFT_N_CHECK,
 } from './types';
 
-export const getVideoListRange = (start: string,end:string ) => async (dispatch: Dispatch) => {
+export const getVideoListRange = (start: string, end: string) => async (dispatch: Dispatch) => {
   try {
-    const date = [start, end]
+    const date = [start, end];
     const res = await api.get(`leader/video-list/date-range/${start}/${end}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -52,18 +52,18 @@ export const getVideoListRange = (start: string,end:string ) => async (dispatch:
     });
     dispatch({
       type: GET_VIDEOS,
-      payload: res.data
+      payload: res.data,
     });
     dispatch({
       type: SET_DATE,
-      payload: date
+      payload: date,
     });
   } catch (error) {
     console.log(error, 'Fetch UnCheckedList Error');
   }
 };
 
-export const setAuthority = (data: any, item:any) => async (dispatch: Dispatch) => {
+export const setAuthority = (data: any, item: any) => async (dispatch: Dispatch) => {
   try {
     const response = await api.post('leader/authority/set', item, {
       headers: {
@@ -261,7 +261,6 @@ export const sendVideoList = (selectList: any, curator: any) => async (dispatch:
 
 export const getVideoLatest = () => async (dispatch: Dispatch) => {
   try {
-
     const res = await api.get(`leader/video-list/last/video`, {
       headers: {
         'Content-Type': 'application/json',
@@ -274,7 +273,7 @@ export const getVideoLatest = () => async (dispatch: Dispatch) => {
     // });
     dispatch({
       type: SET__LATEST_VIDEO,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     console.log(error, 'Fetch UnCheckedList Error');
