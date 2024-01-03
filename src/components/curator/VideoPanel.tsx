@@ -13,7 +13,7 @@ const VideoPanel: React.FC<VideosProps> = ({ results }: VideosProps) => {
       <Row>
         {
           <video
-            src={`https://dist1.joyutils.org/distributor/api/v1/assets/${results}`}
+            src={`https://tokyo.0x2bc.com/distributor/api/v1/assets/${results}`}
             controls
             width="100%"
             height="620px"

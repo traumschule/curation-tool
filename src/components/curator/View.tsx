@@ -8,7 +8,6 @@ const View = () => {
   const [showVideo, setShowVideo] = useState(false);
 
   const handleButtonClick = () => {
-    // let video = <video controls src="https://dwg.joystream.name/distributor/api/v1/assets/${key}" />;
     setShowVideo(true);
   };
 
@@ -33,7 +32,9 @@ const View = () => {
         </Col>
       </Row>
 
-      <Row>{showVideo && <video src={`https://dist1.joyutils.org/api/v1/assets/${key}`} controls></video>}</Row>
+      <Row>
+        {showVideo && <video src={`https://tokyo.0x2bc.com/distributor/api/v1/assets/${key}`} controls></video>}
+      </Row>
     </section>
   );
 };
