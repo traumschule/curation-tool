@@ -76,6 +76,7 @@ const VideoList = ({
     end,
     filter_data,
     setlatest,
+    play_error
   },
 }: any) => {
   // const [value, setValue] = useState(tmp);
@@ -320,6 +321,9 @@ const VideoList = ({
               <Col span={3}>
                 <Checkbox value="F">Non CHECKED</Checkbox>
               </Col>
+              <Col span={3}>
+                <Checkbox value="G">Doesn't play</Checkbox>
+              </Col>
             </Checkbox.Group>
           </Row>
         </Col>
@@ -377,6 +381,10 @@ const VideoList = ({
         <Col span={4}>
           <Tag color="cyan">Duplicate Videos: </Tag>
           {duplicate}
+        </Col>
+        <Col span={4}>
+          <Tag color="cyan">Error: </Tag>
+          {play_error}
         </Col>
       </Row>
       {/* <Col span={3}>  </Col> */}

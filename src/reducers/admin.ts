@@ -7,6 +7,7 @@ import {
   ASSIGNMENT_VIDEOS,
   CHECKED_FILTER,
   DELETE_VIDEO,
+  ENTITY_NO,
   GET_CURATORS,
   GET_VIDEO,
   GET_VIDEOS,
@@ -69,6 +70,7 @@ const initialState = {
   cat_D: null,
   toxic: null,
   duplicate: null,
+  play_error:null,
   start: dayjs(dayjs().format('YYYY-MM-DD 00:00')),
   end: dayjs(),
   latest: null,
@@ -94,6 +96,7 @@ function videoReducer(state = initialState, action: any) {
         cat_B: payload.filter((item: any) => item.video_category == 'B').length,
         cat_C: payload.filter((item: any) => item.video_category == 'C').length,
         cat_D: payload.filter((item: any) => item.video_category == 'D').length,
+        play_error: payload.filter((item: any) => item.video_category == 'Error'|| item.video_play=='No').length,
         toxic: payload.filter((item: any) => item.video_check_tag != '' && null).length,
         duplicate: payload.filter((item: any) => item.video_duplicate == 'Yes').length,
         // start: payload[0],
@@ -118,6 +121,12 @@ function videoReducer(state = initialState, action: any) {
         curators: payload,
       };
 
+    case ENTITY_NO:
+      return {
+        ...state,
+        filter_data: state.videos.filter((item: any) => item.video_category == 'Error'||item.video_play == 'No'),
+        loading: false,
+      };
     case YPP_NFT:
       tmp = state.videos.filter((item: any) => item.video_yt_id !== null);
       return {
