@@ -1,7 +1,6 @@
 import { DownloadOutlined } from '@ant-design/icons';
 import type { DatePickerProps, RadioChangeEvent } from 'antd';
 import { Button, Checkbox, Col, DatePicker, Divider, Radio, Row, Select, Space, Switch, Table, Tag } from 'antd';
-import type { CheckboxValueType } from 'antd/es/checkbox/Group';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { ColumnsType } from 'antd/es/table';
 import type { TableRowSelection } from 'antd/es/table/interface';
@@ -246,9 +245,9 @@ const VideoList = ({
     getVideoListRange(dateString[0], dateString[1]);
   };
 
-  const onCheckChange = (checkedValues: CheckboxValueType[]) => {
-    const sort = checkedValues?.sort();
-    const result = sort?.join('');
+  const onCheckChange = (checkedValue : any[]) => {
+    const sorted = checkedValue?.sort();
+    const result = sorted?.join('');
     // console.log(result, 'result');
     setFilter(result);
   };
