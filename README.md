@@ -8,16 +8,21 @@ The "Video Check" project aims to provide a solution for video checking. It util
  
 To install and run the project locally, please follow these steps: 
  
-1. Clone the repository:  git clone https://github.com/GoldWolf115/Video-Check.git>  
-2. Navigate to the project directory:  cd Video-Check  
-3. Install dependencies:  npm install  
+1. Clone the repository:  git clone https://github.com/Joystream/curator-video-tool
+2. Navigate to the project directory: `cd curator-video-tool`
+3. Install dependencies: `npm install`
  
-## Usage 
+## Client
  
-To start the server and client concurrently, use the following command:
-npm run server
-This command will start the server using nodemon for automatic server restarts, and the client using the  npm start  command. 
- 
+`npm run dev | preview`
+
+## Backend
+The client requires an /auth server.
+
+`cd mongo_backend`
+`cp .env-example .env` # install mongo DB and adjust settings
+`npm run start | server`
+
 ## Dependencies 
  
 The project relies on the following dependencies: 
@@ -45,6 +50,6 @@ The project has the following development dependencies:
  
 This project is licensed under the MIT license. For more information, please refer to the LICENSE file. 
  
-## Author 
+## Authors
  
-This project was authored by Josh Groban
+This project was authored by Josh Groban, Klaudiusz Dembler and goldwold
