@@ -120,7 +120,7 @@ const Assignment = () => {
   }, [msg, date]);
 
   const onDatePickerChange: DatePickerProps['onChange'] = (date, dateString) => {
-    setDate(dateString);
+    setDate([...dateString].join(' '));
   };
 
   async function getUnCheckedList(date: string) {
